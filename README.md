@@ -1,29 +1,34 @@
-# transaction_parser
-
-Выходные данные
-
-Программа выводит для каждой транзакции:
-
-    Хеш транзакции (TXID)
-
-    Версию протокола
-
-    Размер в байтах
-
-    Время блокировки
-
-    Список входов (с предыдущими выходами и скриптами)
-
-    Список выходов (с адресами, суммами и скриптами)
-
-Используемые методы bitcoinlib
+# Используемые методы bitcoinlib
+Transaction:
 
     Transaction.parse_hex() - парсинг hex-строки
 
-    tx.txid - хеш транзакции
+    .txid - хеш транзакции
 
-    tx.inputs - список входов
+    .version - версия протокола
 
-    tx.outputs - список выходов
+    .size - размер в байтах
 
-    script.serialize().hex() - получение hex-скрипта
+    .locktime - время блокировки
+
+    .inputs - список входов
+
+    .outputs - список выходов
+
+Input:
+
+    .prev_txid.hex() - хеш предыдущей транзакции
+
+    .output_n - индекс выхода
+
+    .script.serialize().hex() - ScriptSig
+
+    .sequence - номер последовательности
+
+Output:
+
+    .address - Bitcoin-адрес
+
+    .value - сумма в сатоши
+
+    .script.serialize().hex() - ScriptPubKey
